@@ -1,15 +1,45 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
-import App from './App'
-import router from './router'
+// import App from './App'
+// import router from './router'
 
 Vue.config.productionTip = false
 
-/* eslint-disable no-new */
-new Vue({
+let Child = {
+  template: '<button @click="clickHandler($event)">' +
+    'click me' +
+    '</button>',
+  methods: {
+    clickHandler(e) {
+      console.log('Button clicked!', e)
+      this.$emit('select')
+    }
+  }
+}
+
+let vm = new Vue({
   el: '#app',
-  router,
-  components: { App },
-  template: '<App/>'
+  template: '<div>' +
+    '<child @select="selectHandler" @click.native.prevent="clickHandler"></child>' +
+    '</div>',
+  methods: {
+    clickHandler() {
+      console.log('Child clicked!')
+    },
+    selectHandler() {
+      console.log('Child select!')
+    }
+  },
+  components: {
+    Child
+  }
 })
+
+/* eslint-disable no-new */
+// new Vue({
+//   el: '#app',
+//   router,
+//   components: { App },
+//   template: '<App/>'
+// })

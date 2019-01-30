@@ -6,9 +6,17 @@
 </template>
 
 <script>
-export default {
-  name: 'App'
-}
+  import HelloWorld from 'components/HelloWorld'
+
+  export default {
+    name: 'App',
+    methods: {
+
+    },
+    components: {
+      HelloWorld
+    }
+  }
 </script>
 
 <style>
