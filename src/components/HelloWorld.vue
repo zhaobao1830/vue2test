@@ -1,6 +1,6 @@
 <template>
   <div>
-    <test @select="selectHandler" @click.native.prevent="clickHandler"></test>
+    <test v-model="searchText"></test>
   </div>
 </template>
 
@@ -9,6 +9,11 @@
 
   export default {
     name: 'HelloWorld',
+    data () {
+      return {
+        searchText: ''
+      }
+    },
     methods: {
       clickHandler () {
         console.log('Child clicked!')
