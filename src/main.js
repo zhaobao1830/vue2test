@@ -6,6 +6,20 @@ import router from './router'
 
 Vue.config.productionTip = false
 
+router.beforeEach((to, from, next) => {
+  console.log('这是beforeEach：')
+  next()
+})
+
+router.beforeResolve((to, from, next) => {
+  console.log('这是beforeResolve：')
+  next()
+})
+
+router.afterEach((to, from) => {
+  console.log('这是afterEach：')
+})
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

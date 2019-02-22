@@ -1,9 +1,6 @@
 <template>
   <div class="test">
-    <button @click="clickHandler($event)">点击</button>
-    <input v-model="message">
-    <input :value="message" @input="message=$event.target.value">
-    <p>{{message}}</p>
+    <p>我是测试组件</p>
   </div>
 </template>
 
@@ -26,6 +23,16 @@
         console.log('Button clicked!', e)
         this.$emit('select')
       }
+    },
+    beforeRouteEnter (to, from, next) {
+      console.log('这是test的beforeRouteEnter')
+      next(vm => {
+        console.log('这是test1的vm实例：' + vm)
+      })
+    },
+    beforeRouteLeave (to, from, next) {
+      console.log('这是test的beforeRouteLeave')
+      next()
     }
   }
 </script>

@@ -1,6 +1,7 @@
 <template>
   <div>
-    <test v-model="searchText"></test>
+    <router-link to="test">跳转到test组件</router-link>
+    <router-link to="test1">跳转到test1组件</router-link>
   </div>
 </template>
 
@@ -30,4 +31,7 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+  .router-link-active{
+    color: deeppink;
+  }
 </style>
